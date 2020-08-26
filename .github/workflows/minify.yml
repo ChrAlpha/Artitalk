@@ -1,4 +1,4 @@
-name: minify
+name: Minify assets
 
 on: [push]
 
