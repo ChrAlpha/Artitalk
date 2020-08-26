@@ -1,6 +1,6 @@
 var artitalkVar = {};
 
-artitalkVar.version = "v2.4.2";
+artitalkVar.version = "v2.4.1";
 if (document.getElementById("lazy") || !document.getElementById("artitalk_main")) {
     var r = confirm("旧版本需要进行一些改动，未进行改动无法正常加载页面属于正常现象。点击确定前往查看改动");
     if (r == true) {
