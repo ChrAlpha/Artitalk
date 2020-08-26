@@ -2,7 +2,9 @@
   "name": "artitalk",
   "version": "2.4.2",
   "scripts": {
-    "gulp": "gulp --config gulpfile.js"
+    "build": "gulp --config gulpfile.js",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "gulp": "^4.0.2",
@@ -10,6 +12,17 @@
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^2.0.0",
-    "gulp-uglify-es": "^2.0.0"
+    "gulp-uglify-es": "^2.0.0",
+    "leancloud-storage": "^4.6.1",
+    "showdown": "^1.9.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.7.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }

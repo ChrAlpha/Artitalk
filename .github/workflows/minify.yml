@@ -7,21 +7,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
+    - name: Checkout
+      uses: actions/checkout@v2
 
-    - name: Setup
-      run: yarn install
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+
+    - name: Use cached node_modules
+      uses: actions/cache@v1
+      with:
+        path: node_modules
+        key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          nodeModules-
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      env:
+        CI: true
 
     - name: Minify
-      run: yarn gulp
+      run: yarn build
 
     - name: Commit
       run: |
-        git config --global user.email artitalk-bot@email.com
-        git config --global user.name artitalk-bot
+        git config --global user.email Artitalk@email.com
+        git config --global user.name ArtitalkJS
         git add dist/css/artitalk.min.css -f
         git add dist/js/artitalk.js -f
         git add dist/js/artitalk.min.js -f
